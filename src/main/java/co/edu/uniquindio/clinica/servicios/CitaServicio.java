@@ -17,7 +17,7 @@ public class CitaServicio {
         this.citaRepositorio = new CitaRepositorio();
     }
 
-    public void agendarCita(Paciente paciente, LocalDateTime fecha, Servicio servicio) throws Exception{
+    public Cita agendarCita(Paciente paciente, LocalDateTime fecha, Servicio servicio) throws Exception{
         if(paciente == null) throw new Exception("No hay paciente seleccionado para la cita");
         if(fecha == null) throw new Exception("No hay fecha seleccionada");
         if(servicio == null) throw new Exception("No hay servicio seleccionada");
@@ -27,13 +27,23 @@ public class CitaServicio {
         Cita cita = new Cita(paciente, UUID.randomUUID().toString(), fecha, servicio, factura);
 
         citaRepositorio.agregarCita(cita);
+
+        return cita;
+    }
+
+    public boolean horarioValidoCita(LocalDateTime fecha)throws Exception{
+        return true;
     }
 
     public void cancelarCita(String id) throws Exception {
-        Cita cita = citaRepositorio.buscarCita(id);
-        if(cita == null) throw new Exception("No hay citas con ese id");
+        Cita cita = buscarCita(id);
         citaRepositorio.eliminarCita(cita);
     }
 
+    public Cita buscarCita(String id) throws Exception {
+        Cita cita = citaRepositorio.buscarCita(id);
+        if(cita == null) throw new Exception("No hay citas con ese id");
+        return cita;
+    }
 
 }
