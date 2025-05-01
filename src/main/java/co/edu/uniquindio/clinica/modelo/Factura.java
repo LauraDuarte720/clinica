@@ -10,12 +10,10 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 
-public class Cita {
-    private Paciente paciente;
-    private String id;
+public class Factura {
     private LocalDateTime fecha;
-    private Servicio servicio;
-    private Factura factura;
-
+    private String id;
+    private double total;
+    private double subtotal;
 
 }

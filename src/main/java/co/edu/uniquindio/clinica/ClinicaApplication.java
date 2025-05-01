@@ -19,19 +19,18 @@ public class ClinicaApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader(ClinicaApplication.class.getResource("view/ViewContactos.fxml"));
+        FXMLLoader loader = new FXMLLoader(ClinicaApplication.class.getResource("panel.fxml"));
         Parent parent = loader.load();
-
         Scene scene = new Scene(parent, 800, 360);
         stage.setScene(scene);
         stage.setTitle("UQ Notas");
         stage.setResizable(false);
+        stage.setMaximized(true);
         stage.show();
 
     }
 
     public static void main(String[] args) {
-
         launch(ClinicaApplication.class, args);
     }
 
