@@ -1,6 +1,7 @@
 package co.edu.uniquindio.clinica.controladores;
 
 
+import co.edu.uniquindio.clinica.modelo.factory.Suscripcion;
 import co.edu.uniquindio.clinica.servicios.ClinicaServicio;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -17,6 +18,7 @@ public class ControladorPrincipal {
 
 
     private static ControladorPrincipal instancia;
+
 
     private final ClinicaServicio clinica;
 
@@ -42,6 +44,8 @@ public class ControladorPrincipal {
 
     public void crearAlerta(String mensaje, Alert.AlertType tipo){
         Alert alert = new Alert(tipo);
+        alert.setHeight(300);
+        alert.setWidth(500);
         alert.setTitle("Alerta");
         alert.setHeaderText(null);
         alert.setContentText(mensaje);

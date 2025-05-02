@@ -22,7 +22,8 @@ public class CitaServicio {
         if(paciente == null) throw new Exception("No hay paciente seleccionado para la cita");
         if(fecha == null) throw new Exception("No hay fecha seleccionada");
         if(servicio == null) throw new Exception("No hay servicio seleccionada");
-        if(!horarioValidoCita(fecha, servicio)) throw new Exception("No hay horario disponible a esa hora");
+        if(fecha.isBefore(LocalDateTime.now())) throw new Exception("La fecha seleccionada no puede ser anterior a hoy");
+        if(horarioInvalidoCita(fecha, servicio)) throw new Exception("No hay horario disponible a esa hora");
 
         Factura factura = paciente.getSuscripcion().generarFacturaCobro(servicio);
 
@@ -33,11 +34,11 @@ public class CitaServicio {
         return cita;
     }
 
-    public boolean horarioValidoCita(LocalDateTime fecha, Servicio servicio)throws Exception{
+    public boolean horarioInvalidoCita(LocalDateTime fecha, Servicio servicio)throws Exception{
         for(Cita cita: citaRepositorio.obtenerCitas()){
-            if(fecha.equals(cita.getFecha()) && servicio.equals(cita.getServicio()) ) return false;
+            if(fecha.equals(cita.getFecha()) && servicio.equals(cita.getServicio()) ) return true;
         }
-        return true;
+        return false;
     }
 
     public void cancelarCita(String id) throws Exception {

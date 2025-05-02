@@ -39,11 +39,11 @@
             <DatePicker fx:id="dateFecha" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="cmbHora" prefHeight="25.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ComboBox fx:id="cmbServicio" prefHeight="25.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtcedula" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCedula" GridPane.columnIndex="1" />
             <Label text="Cedula" />
          </children>
       </GridPane>
-      <Button minHeight="40.0" minWidth="130.0" onAction="#CrearCita" style="-fx-background-color: #00807a; -fx-text-fill: white" text="Crear">
+      <Button minHeight="40.0" minWidth="130.0" onAction="#crearCita" style="-fx-background-color: #00807a; -fx-text-fill: white" text="Crear">
          <VBox.margin>
             <Insets bottom="20.0" />
          </VBox.margin>

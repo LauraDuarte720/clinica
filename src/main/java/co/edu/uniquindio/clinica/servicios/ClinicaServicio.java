@@ -52,8 +52,8 @@ public class ClinicaServicio implements IClinicaServicio {
             if (servicio.getTipoServicio().equals(tipoServicio)) {
                 servicioSeleccionado = servicio;
             }
-            citaServicio.agendarCita(paciente, fechaCita, servicio);
         }
+        citaServicio.agendarCita(paciente, fechaCita, servicioSeleccionado);
     }
 
     @Override

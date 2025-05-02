@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class SuscripcionBasica implements Suscripcion {
+
     @Override
     public List<Servicio> getServiciosDisponibles() {
 

@@ -7,9 +7,11 @@ public class FactorySuscripcion {
 
     public static Suscripcion crearSuscripcion(TipoSuscripcion tipoSuscripcion) {
         Suscripcion suscripcion = null;
-        switch (tipoSuscripcion) {
-            case BASICA -> suscripcion = new SuscripcionBasica();
-            case PREMIUM -> suscripcion = new SuscripcionPremiun();
+        if(tipoSuscripcion != null) {
+            switch (tipoSuscripcion) {
+                case BASICA -> suscripcion = new SuscripcionBasica();
+                case PREMIUM -> suscripcion = new SuscripcionPremiun();
+            }
         }
         return suscripcion;
     }

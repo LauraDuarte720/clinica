@@ -9,10 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox spacing="20.0" style="-fx-padding: 30px; -fx-background-color: #88b6c5; -fx-font-family: 'Georgia';"
-      xmlns:fx="http://javafx.com/fxml/1"
-      xmlns="http://javafx.com/javafx/23.0.1"
-      fx:controller="co.edu.uniquindio.clinica.controladores.PanelControlador">
+<HBox spacing="20.0" style="-fx-padding: 30px; -fx-background-color: #88b6c5; -fx-font-family: 'Georgia';" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.clinica.controladores.PanelControlador">
 
     <VBox alignment="BASELINE_CENTER" minWidth="200.0" spacing="20.0">
 
@@ -20,7 +17,7 @@
             <ImageView fitWidth="50.0" preserveRatio="true">
                 <Image url="@img/imgClinica.png" />
             </ImageView>
-            <Label text="Panel de la clínica">
+            <Label text="Clínica">
                 <font>
                     <Font size="20.0" />
                 </font>

@@ -15,13 +15,15 @@ public class PacienteServicio {
     }
 
     public Paciente registrarPaciente(String telefono, String nombre, String cedula, String email, Suscripcion suscripcion) throws Exception{
-        if(telefono == null || telefono.isEmpty()) throw new Exception("El telefono es obligatorio");
+        if(telefono == null || telefono.isEmpty()) throw new Exception("El télefono es obligatorio");
+        if (!telefono.trim().matches("^3\\d{9}$")) throw new Exception("El telefono debe tener 10 digitos e iniciar en 3");
         if(nombre == null || nombre.isEmpty()) throw new Exception("El nombre es obligatorio");
-        if(cedula == null || cedula.isEmpty()) throw new Exception("El cedula es obligatorio");
+        if(cedula == null || cedula.isEmpty()) throw new Exception("El cédula es obligatorio");
         if(email == null || email.isEmpty()) throw new Exception("El email es obligatorio");
-        if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) throw new Exception("El email es obligatorio");
+        if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) throw new Exception("Email inválido");
         if(suscripcion == null) throw new Exception("La suscripcion es obligatoria");
         if(pacienteRepositorio.buscarPaciente(cedula) != null ) throw new Exception("El paciente ya existe");
+
 
 
         Paciente paciente = new Paciente(telefono, nombre, cedula, email, suscripcion);

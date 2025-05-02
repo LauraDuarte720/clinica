@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Getter
 @Setter
@@ -18,6 +19,11 @@ public class Cita {
     private LocalDateTime fecha;
     private Servicio servicio;
     private Factura factura;
+
+    public String obtenerFechaCadena(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return fecha.format(formatter);
+    }
 
 
 }

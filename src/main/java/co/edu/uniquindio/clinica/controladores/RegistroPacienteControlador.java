@@ -38,8 +38,18 @@ public class RegistroPacienteControlador {
     void registrarse(ActionEvent event) {
         try {
             controladorPrincipal.getClinica().registrarPaciente(txtTelefono.getText(), txtNombre.getText(), txtCedula.getText(), txtEmail.getText(), cmbSuscripcion.getValue());
+            controladorPrincipal.crearAlerta("El paciente fue registrado exitosamente", Alert.AlertType.INFORMATION);
+            limpiarCampos();
         } catch (Exception e) {
             controladorPrincipal.crearAlerta(e.getMessage(), Alert.AlertType.ERROR);
         }
+    }
+
+    public void limpiarCampos(){
+        txtCedula.clear();
+        txtEmail.clear();
+        txtNombre.clear();
+        txtTelefono.clear();
+        cmbSuscripcion.setValue(null);
     }
 }

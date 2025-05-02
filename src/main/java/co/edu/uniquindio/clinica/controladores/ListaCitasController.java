@@ -13,6 +13,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import static javafx.collections.FXCollections.observableList;
 
 public class ListaCitasController {
@@ -21,7 +23,7 @@ public class ListaCitasController {
     private Button btnCancelar;
 
     @FXML
-    private TableColumn<Cita, LocalDateTime> colFecha;
+    private TableColumn<Cita, String> colFecha;
 
     @FXML
     private TableColumn<Cita, String> colId;
@@ -39,8 +41,9 @@ public class ListaCitasController {
     private final ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
 
     public void initialize() {
+
         colFecha.setCellValueFactory(cellData ->
-                new SimpleObjectProperty<>((cellData.getValue().getFecha())));
+                new SimpleStringProperty(cellData.getValue().obtenerFechaCadena()));
         colId.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getId()));
         colPaciente.setCellValueFactory(cellData ->
@@ -48,23 +51,27 @@ public class ListaCitasController {
         colServicio.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getServicio().getTipoServicio().getNombre()));
         agregarListener();
+        setCitas();
     }
 
     @FXML
     void onActionCancelarCita(ActionEvent event) {
         if (citaSeleccionada==null){
-            controladorPrincipal.crearAlerta("No se seleccina ninguna cita", Alert.AlertType.ERROR);
+            controladorPrincipal.crearAlerta("No se ha seleccionado ninguna cita", Alert.AlertType.ERROR);
             return;
         }
-        String idCita=citaSeleccionada.getId();
+
+        String idCita = citaSeleccionada.getId();
         try{
             controladorPrincipal.getClinica().cancelarCita(idCita);
+            controladorPrincipal.crearAlerta("La cita fue cancelada exitosamente", Alert.AlertType.INFORMATION);
             setCitas();
         }
         catch (Exception e){
             controladorPrincipal.crearAlerta(e.getMessage(), Alert.AlertType.ERROR);
         }
     }
+
 
     private void agregarListener(){
         tablaCitas.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {

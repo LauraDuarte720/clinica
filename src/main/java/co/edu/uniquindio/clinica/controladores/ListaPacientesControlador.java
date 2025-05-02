@@ -40,7 +40,7 @@ public class ListaPacientesControlador {
         colNombre.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getNombre()));
         colSuscripcion.setCellValueFactory(cellData ->
-                new SimpleObjectProperty((cellData.getValue().getSuscripcion())));
+                new SimpleObjectProperty((cellData.getValue().obtenerTipoSuscripcion().getNombre())));
         colTelefono.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getTelefono()));
         setTablaPacientes();
