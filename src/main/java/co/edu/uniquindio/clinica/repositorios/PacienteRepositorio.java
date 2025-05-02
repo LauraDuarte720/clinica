@@ -2,11 +2,16 @@ package co.edu.uniquindio.clinica.repositorios;
 
 import co.edu.uniquindio.clinica.modelo.Paciente;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class PacienteRepositorio {
     private List<Paciente> pacientes;
+
+    public PacienteRepositorio() {
+        this.pacientes = new ArrayList<>();
+    }
 
     public void agregarPaciente(Paciente paciente){
         pacientes.add(paciente);
