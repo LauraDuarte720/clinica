@@ -36,7 +36,8 @@ public class PanelControlador2 implements Initializable {
         try{
             cargarTab(tab1, "/registroPaciente.fxml");
             cargarTab(tab2, "/listaPacientes.fxml");
-            //Agregar los otros tabs…
+            cargarTab(tab3, "/registroCitas.fxml");
+            cargarTab(tab2, "/listaCitas.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
