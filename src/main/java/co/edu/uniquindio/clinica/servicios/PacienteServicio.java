@@ -20,7 +20,7 @@ public class PacienteServicio {
         if(cedula == null || cedula.isEmpty()) throw new Exception("El cedula es obligatorio");
         if(email == null || email.isEmpty()) throw new Exception("El email es obligatorio");
         if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) throw new Exception("El email es obligatorio");
-        if(suscripcion == null) throw new Exception("La suscripcion es obligatorio");
+        if(suscripcion == null) throw new Exception("La suscripcion es obligatoria");
         if(pacienteRepositorio.buscarPaciente(cedula) != null ) throw new Exception("El paciente ya existe");
 
 

@@ -23,7 +23,7 @@ public class CitaServicio {
         if(servicio == null) throw new Exception("No hay servicio seleccionada");
         if(!horarioValidoCita(fecha, servicio)) throw new Exception("No hay horario disponible a esa hora");
 
-        Factura factura = new Factura(fecha, UUID.randomUUID().toString(), servicio.getPrecio(), servicio.getPrecio());
+        Factura factura = paciente.getSuscripcion().generarFacturaCobro(servicio);
 
         Cita cita = new Cita(paciente, UUID.randomUUID().toString(), fecha, servicio, factura);
 
