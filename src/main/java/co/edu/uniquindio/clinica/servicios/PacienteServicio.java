@@ -29,7 +29,7 @@ public class PacienteServicio {
         
         return paciente;
     }
-
+//
     public void eliminarPaciente(String cedula) throws Exception{
         Paciente paciente = buscarPaciente(cedula);
         pacienteRepositorio.eliminarPaciente(paciente);
