@@ -21,7 +21,7 @@ public class CitaServicio {
         if(paciente == null) throw new Exception("No hay paciente seleccionado para la cita");
         if(fecha == null) throw new Exception("No hay fecha seleccionada");
         if(servicio == null) throw new Exception("No hay servicio seleccionada");
-        if(!horarioValidoCita(fecha)) throw new Exception("No hay horario disponible a esa hora");
+        if(!horarioValidoCita(fecha, servicio)) throw new Exception("No hay horario disponible a esa hora");
 
         Factura factura = new Factura(fecha, UUID.randomUUID().toString(), servicio.getPrecio(), servicio.getPrecio());
 
@@ -32,9 +32,9 @@ public class CitaServicio {
         return cita;
     }
 
-    public boolean horarioValidoCita(LocalDateTime fecha)throws Exception{
+    public boolean horarioValidoCita(LocalDateTime fecha, Servicio servicio)throws Exception{
         for(Cita cita: citaRepositorio.obtenerCitas()){
-            if(fecha.equals(cita.getFecha())) return false;
+            if(fecha.equals(cita.getFecha()) && servicio.equals(cita.getServicio()) ) return false;
         }
         return true;
     }
