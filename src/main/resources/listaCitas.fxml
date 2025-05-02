@@ -15,11 +15,10 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TableView fx:id="tablaPacientes" prefWidth="402.0" VBox.vgrow="ALWAYS">
+      <TableView fx:id="tablaCitas" prefWidth="402.0" VBox.vgrow="ALWAYS">
          <columns>
             <TableColumn fx:id="colPaciente" text="Paciente" />
             <TableColumn fx:id="colId" text="Id" />
-            <TableColumn fx:id="colTelefono" text="Teléfono" />
             <TableColumn fx:id="colFecha" text="Fecha" />
             <TableColumn fx:id="colServicio" text="Servicio" />
          </columns>

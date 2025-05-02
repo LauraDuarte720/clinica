@@ -1,5 +1,9 @@
 package co.edu.uniquindio.clinica.modelo.enums;
 
+
+import lombok.Getter;
+
+@Getter
 public enum TipoSuscripcion {
     BASICA ("Básica"),
     PREMIUM ("Premium");
@@ -8,9 +12,5 @@ public enum TipoSuscripcion {
 
     TipoSuscripcion(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getNombre() {
-        return nombre;
     }
 }

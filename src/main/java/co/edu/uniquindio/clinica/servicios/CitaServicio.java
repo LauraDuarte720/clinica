@@ -7,6 +7,7 @@ import co.edu.uniquindio.clinica.modelo.Servicio;
 import co.edu.uniquindio.clinica.repositorios.CitaRepositorio;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 public class CitaServicio {
@@ -50,4 +51,7 @@ public class CitaServicio {
         return cita;
     }
 
+    public List<Cita> obtenerCitas() {
+        return citaRepositorio.obtenerCitas();
+    }
 }

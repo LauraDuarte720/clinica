@@ -1,5 +1,6 @@
 package co.edu.uniquindio.clinica.servicios;
 
+import co.edu.uniquindio.clinica.modelo.Cita;
 import co.edu.uniquindio.clinica.modelo.Factura;
 import co.edu.uniquindio.clinica.modelo.Paciente;
 import co.edu.uniquindio.clinica.modelo.Servicio;
@@ -31,34 +32,42 @@ public class ClinicaServicio implements IClinicaServicio {
     }
 
     @Override
-    public List<Paciente> listarPacientes() throws Exception {
-        return List.of();
+    public List<Paciente> listarPacientes() {
+        return pacienteServicio.obtenerPacientes();
     }
 
     @Override
-    public void registrarServicio(double precio, String id, String nombre) throws Exception {
-
+    public List<Cita> listarCitas() {
+        return citaServicio.obtenerCitas();
     }
 
+
     @Override
-    public void registrarCita(String cedulaPaciente, String id, LocalDate fecha, LocalTime hora, Servicio servicio, Factura factura) throws Exception {
+    public void registrarCita(String cedulaPaciente, LocalDate fecha, LocalTime hora, TipoServicio tipoServicio) throws Exception {
 
         Paciente paciente = pacienteServicio.buscarPaciente(cedulaPaciente);
         LocalDateTime fechaCita = fecha.atTime(hora);
-        citaServicio.agendarCita(paciente, fechaCita, servicio);
+        Servicio servicioSeleccionado = null;
+        for (Servicio servicio : paciente.getSuscripcion().getServiciosDisponibles()) {
+            if (servicio.getTipoServicio().equals(tipoServicio)) {
+                servicioSeleccionado = servicio;
+            }
+            citaServicio.agendarCita(paciente, fechaCita, servicio);
+        }
     }
 
     @Override
     public Factura generarFacturaCobro(String cedulaPaciente, TipoServicio tipoServicio) throws Exception {
         Paciente paciente = pacienteServicio.buscarPaciente(cedulaPaciente);
         Servicio servicioSeleccionado = null;
-        for(Servicio servicio: paciente.getSuscripcion().getServiciosDisponibles()){
-            if(servicio.getTipoServicio().equals(tipoServicio)){
+        for (Servicio servicio : paciente.getSuscripcion().getServiciosDisponibles()) {
+            if (servicio.getTipoServicio().equals(tipoServicio)) {
                 servicioSeleccionado = servicio;
             }
         }
         return paciente.getSuscripcion().generarFacturaCobro(servicioSeleccionado);
     }
+
 
     @Override
     public List<Servicio> getServiciosDisponibles(Suscripcion suscripcion) throws Exception {

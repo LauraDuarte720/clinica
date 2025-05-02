@@ -16,10 +16,10 @@ import java.util.List;
 public interface IClinicaServicio {
     public void registrarPaciente(String telefono, String nombre, String cedula, String email, TipoSuscripcion tipoSuscripcion)throws Exception;
     public List<Paciente> listarPacientes() throws Exception;
-    public void registrarServicio(double precio, String id, String nombre)throws Exception;
-    public void registrarCita(String cedulaPaciente, String id, LocalDate fecha, LocalTime hora, Servicio servicio, Factura factura)throws Exception;
+    public void registrarCita(String cedulaPaciente, LocalDate fecha, LocalTime hora, TipoServicio tipoServicio)throws Exception;
     public Factura generarFacturaCobro(String cedulaPaciente, TipoServicio tipoServicio)throws Exception;
     public List<Servicio> getServiciosDisponibles(Suscripcion suscripcion)throws Exception;
     public void cancelarCita(String id) throws Exception;
+    public List<Cita> listarCitas() throws Exception;
 
 }

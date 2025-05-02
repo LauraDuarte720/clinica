@@ -1,5 +1,9 @@
 package co.edu.uniquindio.clinica.modelo.enums;
 
+import lombok.Getter;
+
+@Getter
+
 public enum TipoServicio {
     CONSULTAGENERAL("Consulta general", 8000),
     PSICOLOGIA("Psicologia", 6000),
@@ -17,11 +21,4 @@ public enum TipoServicio {
         this.precio = precio;
     }
 
-    public double getPrecio() {
-        return precio;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
 }

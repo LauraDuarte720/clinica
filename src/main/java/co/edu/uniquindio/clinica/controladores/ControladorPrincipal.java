@@ -7,6 +7,10 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import lombok.Getter;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Getter
 public class ControladorPrincipal {
@@ -43,6 +47,8 @@ public class ControladorPrincipal {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
+
 
 
 }
