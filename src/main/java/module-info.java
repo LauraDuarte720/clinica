@@ -3,6 +3,8 @@ module co.edu.uniquindio.clinica {
     requires javafx.fxml;
     requires static lombok;
     requires java.desktop;
+    requires org.simplejavamail.core;
+    requires org.simplejavamail;
 
 
     opens co.edu.uniquindio.clinica to javafx.fxml;

@@ -25,7 +25,7 @@ public class ClinicaApplication extends Application {
         stage.setScene(scene);
         stage.setTitle("UQ Notas");
         stage.setResizable(false);
-        stage.setMaximized(true);
+                stage.centerOnScreen();
         stage.show();
 
     }
