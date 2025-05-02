@@ -1,17 +1,23 @@
 package co.edu.uniquindio.clinica.controladores;
 
+import co.edu.uniquindio.clinica.modelo.enums.TipoServicio;
+import co.edu.uniquindio.clinica.modelo.enums.TipoSuscripcion;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+
+import static javafx.collections.FXCollections.observableList;
 
 public class RegistroPacienteControlador {
 
     @FXML
-    private ComboBox<?> cmbSuscripcion;
+    private ComboBox<TipoSuscripcion> cmbSuscripcion;
 
     @FXML
-    private TextField txtCorreo;
+    private TextField txtCedula;
 
     @FXML
     private TextField txtEmail;
@@ -22,9 +28,18 @@ public class RegistroPacienteControlador {
     @FXML
     private TextField txtTelefono;
 
-    @FXML
-    void registrarse(ActionEvent event) {
-        System.out.println();
+    private final ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
+
+    public void initialize() {
+        cmbSuscripcion.setItems(FXCollections.observableArrayList(TipoSuscripcion.values()));
     }
 
+    @FXML
+    void registrarse(ActionEvent event) {
+        try {
+            controladorPrincipal.getClinica().registrarPaciente(txtTelefono.getText(), txtNombre.getText(), txtCedula.getText(), txtEmail.getText(), cmbSuscripcion.getValue());
+        } catch (Exception e) {
+            controladorPrincipal.crearAlerta(e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
 }
