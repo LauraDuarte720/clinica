@@ -37,12 +37,20 @@ public class PanelControlador {
 
 
     public void mostrarRegistroCita(ActionEvent actionEvent) {
-        //Completar
+        Parent node = cargarPanel("/registroCitas.fxml");
+
+
+        // Se reemplaza el contenido del panel principal
+        panelPrincipal.getChildren().setAll(node);
     }
 
 
     public void mostrarListaCitas(ActionEvent actionEvent) {
-        //Completar
+        Parent node = cargarPanel("/listaCitas.fxml");
+
+
+        // Se reemplaza el contenido del panel principal
+        panelPrincipal.getChildren().setAll(node);
     }
 
 
