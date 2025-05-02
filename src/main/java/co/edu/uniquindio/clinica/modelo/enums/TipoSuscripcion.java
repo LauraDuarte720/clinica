@@ -6,7 +6,9 @@ import lombok.Getter;
 @Getter
 public enum TipoSuscripcion {
     BASICA ("Básica"),
-    PREMIUM ("Premium");
+    PREMIUM ("Premium"),
+    MENORES("Menores");
+
 
     private final String nombre;
 

@@ -11,6 +11,7 @@ public class FactorySuscripcion {
             switch (tipoSuscripcion) {
                 case BASICA -> suscripcion = new SuscripcionBasica();
                 case PREMIUM -> suscripcion = new SuscripcionPremiun();
+                case MENORES -> suscripcion = new SuscripcionMenores();
             }
         }
         return suscripcion;

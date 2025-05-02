@@ -36,7 +36,9 @@ public class CitaServicio {
 
     public boolean horarioInvalidoCita(LocalDateTime fecha, Servicio servicio)throws Exception{
         for(Cita cita: citaRepositorio.obtenerCitas()){
-            if(fecha.equals(cita.getFecha()) && servicio.equals(cita.getServicio()) ) return true;
+            if(fecha.equals(cita.getFecha()) && servicio.equals(cita.getServicio()) ){
+                return true;
+            }
         }
         return false;
     }

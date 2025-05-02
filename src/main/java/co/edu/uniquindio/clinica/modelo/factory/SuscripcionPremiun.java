@@ -37,13 +37,6 @@ public class SuscripcionPremiun implements Suscripcion {
 
                 Servicio.builder()
                         .id(UUID.randomUUID().toString())
-                        .nombre(TipoServicio.PEDIATRIA.getNombre())
-                        .tipoServicio(TipoServicio.PEDIATRIA)
-                        .precio(TipoServicio.PEDIATRIA.getPrecio() * 0.50)
-                        .build(),
-
-                Servicio.builder()
-                        .id(UUID.randomUUID().toString())
                         .nombre(TipoServicio.TERAPIAFISICA.getNombre())
                         .tipoServicio(TipoServicio.TERAPIAFISICA)
                         .precio(TipoServicio.TERAPIAFISICA.getPrecio() * 0.65)

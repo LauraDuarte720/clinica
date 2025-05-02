@@ -4,14 +4,11 @@ import co.edu.uniquindio.clinica.modelo.Factura;
 import co.edu.uniquindio.clinica.modelo.Servicio;
 import co.edu.uniquindio.clinica.modelo.enums.TipoServicio;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class SuscripcionBasica implements Suscripcion {
-
+public class SuscripcionMenores implements Suscripcion{
     @Override
     public List<Servicio> getServiciosDisponibles() {
 
@@ -20,29 +17,36 @@ public class SuscripcionBasica implements Suscripcion {
                         .id(UUID.randomUUID().toString())
                         .nombre(TipoServicio.CONSULTAGENERAL.getNombre())
                         .tipoServicio(TipoServicio.CONSULTAGENERAL)
-                        .precio(TipoServicio.CONSULTAGENERAL.getPrecio())
+                        .precio(TipoServicio.CONSULTAGENERAL.getPrecio() * 0.40)
                         .build(),
 
-                Servicio.builder()
-                        .id(UUID.randomUUID().toString())
-                        .nombre(TipoServicio.PSICOLOGIA.getNombre())
-                        .tipoServicio(TipoServicio.PSICOLOGIA)
-                        .precio(TipoServicio.PSICOLOGIA.getPrecio())
-                        .build(),
 
                 Servicio.builder()
                         .id(UUID.randomUUID().toString())
                         .nombre(TipoServicio.ODONTOLOGIA.getNombre())
                         .tipoServicio(TipoServicio.ODONTOLOGIA)
-                        .precio(TipoServicio.ODONTOLOGIA.getPrecio() * 0.90)
+                        .precio(TipoServicio.ODONTOLOGIA.getPrecio() * 0.50)
                         .build(),
 
+                Servicio.builder()
+                        .id(UUID.randomUUID().toString())
+                        .nombre(TipoServicio.PEDIATRIA.getNombre())
+                        .tipoServicio(TipoServicio.PEDIATRIA)
+                        .precio(TipoServicio.PEDIATRIA.getPrecio() * 0.35)
+                        .build(),
+
+                Servicio.builder()
+                        .id(UUID.randomUUID().toString())
+                        .nombre(TipoServicio.TERAPIAFISICA.getNombre())
+                        .tipoServicio(TipoServicio.TERAPIAFISICA)
+                        .precio(TipoServicio.TERAPIAFISICA.getPrecio() * 0.80)
+                        .build(),
 
                 Servicio.builder()
                         .id(UUID.randomUUID().toString())
                         .nombre(TipoServicio.VACUNACION.getNombre())
                         .tipoServicio(TipoServicio.VACUNACION)
-                        .precio(TipoServicio.VACUNACION.getPrecio() * 0.95)
+                        .precio(TipoServicio.VACUNACION.getPrecio() * 0.70)
                         .build()
         );
     }
