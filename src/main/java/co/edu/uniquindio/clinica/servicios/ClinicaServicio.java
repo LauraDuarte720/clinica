@@ -56,7 +56,7 @@ public class ClinicaServicio implements IClinicaServicio {
             }
         }
         Cita cita=citaServicio.agendarCita(paciente, fechaCita, servicioSeleccionado);
-        EnvioEmail.enviarNotificacion(paciente.getEmail(),"Factura","Aqui esta su factura para su cita de "+servicioSeleccionado +"\nLa fecha es: "+fechaCita+ "\nEl subtotal es: "+cita.getFactura().getSubtotal()+ "\nEl total es:"+ cita.getFactura().getTotal());
+        EnvioEmail.enviarNotificacion(paciente.getEmail(),"Factura","!Hola " + paciente.getNombre() + "!" + "\n\nAqui esta su factura para su cita de "+ tipoServicio.getNombre() +"\n\tLa fecha es: "+ cita.obtenerFechaCadena()+ "\n\tEl subtotal es: $"+cita.getFactura().getSubtotal()+ "\n\tEl total es: $"+ cita.getFactura().getTotal());
     }
 
     @Override

@@ -25,7 +25,7 @@ public class SuscripcionPremiun implements Suscripcion {
                         .id(UUID.randomUUID().toString())
                         .nombre(TipoServicio.PSICOLOGIA.getNombre())
                         .tipoServicio(TipoServicio.PSICOLOGIA)
-                        .precio(TipoServicio.PSICOLOGIA.getPrecio())
+                        .precio(TipoServicio.PSICOLOGIA.getPrecio() * 0.70)
                         .build(),
 
                 Servicio.builder()
@@ -33,6 +33,13 @@ public class SuscripcionPremiun implements Suscripcion {
                         .nombre(TipoServicio.ODONTOLOGIA.getNombre())
                         .tipoServicio(TipoServicio.ODONTOLOGIA)
                         .precio(TipoServicio.ODONTOLOGIA.getPrecio() * 0.40)
+                        .build(),
+
+                Servicio.builder()
+                        .id(UUID.randomUUID().toString())
+                        .nombre(TipoServicio.PEDIATRIA.getNombre())
+                        .tipoServicio(TipoServicio.PEDIATRIA)
+                        .precio(TipoServicio.PEDIATRIA.getPrecio())
                         .build(),
 
                 Servicio.builder()

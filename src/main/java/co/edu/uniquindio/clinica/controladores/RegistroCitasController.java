@@ -45,6 +45,17 @@ public class RegistroCitasController {
                 }
             }
         });
+
+        dateFecha.valueProperty().addListener((obs, oldDate, newDate) -> {
+            if (newDate != null) {
+                if (newDate.isEqual(LocalDate.now())) {
+                    LocalTime ahora = LocalTime.now();
+                    cmbHora.setItems(observableList(filtrarHorasPosteriores(generarHorariosCada20Min(), ahora)));
+                } else {
+                    cmbHora.setItems(observableList(generarHorariosCada20Min()));
+                }
+            }
+        });
     }
 
     @FXML

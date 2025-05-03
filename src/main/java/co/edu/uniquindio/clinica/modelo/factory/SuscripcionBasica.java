@@ -20,14 +20,14 @@ public class SuscripcionBasica implements Suscripcion {
                         .id(UUID.randomUUID().toString())
                         .nombre(TipoServicio.CONSULTAGENERAL.getNombre())
                         .tipoServicio(TipoServicio.CONSULTAGENERAL)
-                        .precio(TipoServicio.CONSULTAGENERAL.getPrecio())
+                        .precio(TipoServicio.CONSULTAGENERAL.getPrecio() * 0.60)
                         .build(),
 
                 Servicio.builder()
                         .id(UUID.randomUUID().toString())
                         .nombre(TipoServicio.PSICOLOGIA.getNombre())
                         .tipoServicio(TipoServicio.PSICOLOGIA)
-                        .precio(TipoServicio.PSICOLOGIA.getPrecio())
+                        .precio(TipoServicio.PSICOLOGIA.getPrecio() * 0.90)
                         .build(),
 
                 Servicio.builder()
@@ -35,6 +35,20 @@ public class SuscripcionBasica implements Suscripcion {
                         .nombre(TipoServicio.ODONTOLOGIA.getNombre())
                         .tipoServicio(TipoServicio.ODONTOLOGIA)
                         .precio(TipoServicio.ODONTOLOGIA.getPrecio() * 0.90)
+                        .build(),
+
+                Servicio.builder()
+                        .id(UUID.randomUUID().toString())
+                        .nombre(TipoServicio.PEDIATRIA.getNombre())
+                        .tipoServicio(TipoServicio.PEDIATRIA)
+                        .precio(TipoServicio.PEDIATRIA.getPrecio())
+                        .build(),
+
+                Servicio.builder()
+                        .id(UUID.randomUUID().toString())
+                        .nombre(TipoServicio.TERAPIAFISICA.getNombre())
+                        .tipoServicio(TipoServicio.TERAPIAFISICA)
+                        .precio(TipoServicio.TERAPIAFISICA.getPrecio())
                         .build(),
 
 
