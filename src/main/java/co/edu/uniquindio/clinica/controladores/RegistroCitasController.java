@@ -32,7 +32,7 @@ public class RegistroCitasController {
 
     @FXML
     public void initialize() {
-        cmbHora.setItems(observableList(filtrarHorasPosteriores(generarHorariosCada20Min(), LocalTime.now())));
+        cmbHora.setItems(observableList(generarHorariosCada20Min()));
 
         cmbServicio.setItems(FXCollections.observableArrayList(TipoServicio.values()));
         dateFecha.setDayCellFactory(picker -> new DateCell() {

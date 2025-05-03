@@ -1,6 +1,7 @@
 package co.edu.uniquindio.clinica.modelo;
 
 import co.edu.uniquindio.clinica.modelo.enums.TipoServicio;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

@@ -15,7 +15,7 @@ public class EnvioEmail {
 
 
         Email email = EmailBuilder.startingBlank()
-                .from("SU_EMAIL")
+                .from("envioemail278@gmail.com")
                 .to(destinatario)
                 .withSubject(asunto)
                 .withPlainText(mensaje)
@@ -23,7 +23,7 @@ public class EnvioEmail {
 
 
         try (Mailer mailer = MailerBuilder
-                .withSMTPServer("smtp.gmail.com", 587, "SU_EMAIL", "SU_CLAVE")
+                .withSMTPServer("smtp.gmail.com", 587, "envioemail278@gmail.com", "jipn vsxx eoxc pwvu")
                 .withTransportStrategy(TransportStrategy.SMTP_TLS)
                 .withDebugLogging(true)
                 .buildMailer()) {
